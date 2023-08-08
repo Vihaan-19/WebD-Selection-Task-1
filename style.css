@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    background-color: white;
+}
+
+#dsa {
+    font-size: 3rem;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.ques-header .tag-container {
+    background-color: black;
+    display: flex;
+    overflow: auto;
+    overflow-wrap: break-word;
+    align-items: center;
+    max-width: 25%;
+}
+
+.tag-div {
+
+    background-color: white;
+    margin: 2px;
+}
+
+.ques-header .tags {
+    background-color: goldenrod;
+    font-size: 0.7rem;
+    padding: 2px;
+    float: left;
+    text-align: center;
+    margin: 1px;
+}
+
+#dark-btn {
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .dark-mode-button {
+    position: fixed;
+    
+    
+  }
+  .dark-mode-button:hover {
+    background-color: #555;
+  } */
+
+
+
+
+.GeekHaven {
+    display: flex;
+    justify-content: center;
+}
+
+/* Basic reset and styles */
+
+.search-container {
+    display: flex;
+    margin: 20px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+#searchInput:focus {
+    outline: none;
+}
+
+#searchButton {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+#searchResults {
+    list-style: none;
+    padding: 0;
+    margin: 20px;
+}
+
+#searchResults li {
+    margin-bottom: 10px;
+}
+
+#searchResults a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* Title of the Category */
+.main-title {
+    color: blue;
+    background-color: aquamarine;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+}
+
+.ques-header {
+    background-color: azure;
+    border-radius: 10px;
+    display: flex;
+    /* IMPORTANT */
+    justify-content: space-between;
+    padding: 20px;
+    cursor: pointer;
+}
+
+
+.ques-container {
+    background-color: chocolate;
+    border-radius: 5px;
+    padding: 5px;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.ques-container:hover {
+    background-color: brown;
+}
+
+.ques-container:focus {
+    background-color: blue;
+}
+
+
+/* Question title */
+.ques-title {
+    color: darkblue;
+    background-color: aqua;
+    margin-right: 30px;
+    padding: 5px;
+
+}
+
+/* Check-box */
+/* TO-DO!! Add Checkbox functionality */
+.my-check-box-1,
+.my-check-box-1 {
+    cursor: pointer;
+}
+
+
+
+.answer {
+    display: none;
+}
+
+
+.ques-header i {
+    display: flex;
+    align-items: center;
+    color: black;
+    margin-left: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.ques-container.active .ques-header i {
+    display: flex;
+    align-items: center;
+    transform: rotate(45deg);
+}
+
+.ques-container.active .answer {
+    display: inline;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ques-container.active .answer .p1,
+.ques-container.active .answer .p2 {
+    display: block;
+}
+
+.p1 {
+    display: flex;
+    background-color: crimson;
+    justify-content: space-between;
+}
+
+.bookmark-btn {
+    background-color: #007bff;
+}
+
+
+
+.p2 {
+    background-color: crimson;
+}
+
+
+.bookmark-btn:active {
+    background-color: black;
+}
+
+.p1-link {
+    text-decoration: none;
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    font-size: 19px;
+}
+
+.p2-link {
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 19px;
+}
+
+.yt-link {
+    text-decoration: none;
+    background-color: blanchedalmond;
+    margin-left: 20px;
+    font-size: 19px;
+}
+
+
+
+footer {
+    color: black;
+}
+
+
+
+
+/* Dark Mode */
+
+/* Added Dark Mode */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode #dark-btn {
+    color: black;
+    background-color: beige;
+}
+
+.dark-mode .ques-header {
+    background-color: yellow;
+}
+
+.dark-mode .tags {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    margin: 2px;
+}
+
+.dark-mode footer {
+    color: aqua;
+}
+
+.dark-mode #searchResults a {
+    color: wheat;
+}
+
+.dark-mode .GeekHaven {
+    -webkit-filter: invert(100%);
+    /* safari 6.0 - 9.0 */
+    filter: invert(100%);
+}

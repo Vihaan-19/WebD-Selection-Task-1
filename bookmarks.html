@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>BookMarks Here</h1>
+    <a href="/index.html">Back</a>
+    <div class="links">
+        <ul class="unorder">
+
+        </ul>
+    </div>
+    <script>
+        var bookMarkData = JSON.parse(localStorage.getItem('myProblems'));
+        var title_arr = bookMarkData.title;
+        var links_arr = bookMarkData.ids;
+        var links = document.querySelector('.unorder');
+        title_arr.forEach((title)=>{
+            var category = document.createElement('h1');
+            category.textContent=title;
+            links.appendChild(category);
+        })
+        links_arr.forEach((link) => {
+            var li = document.createElement('li');
+            links.appendChild(li);
+
+            var anchors = document.createElement('a');
+            anchors.setAttribute('href', link);
+            anchors.textContent = "Problem"
+            //Save to local storage
+            li.appendChild(anchors);
+        })
+
+    </script>
+
+</body>
+
+</html>
