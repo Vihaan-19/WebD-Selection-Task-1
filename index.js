@@ -2,13 +2,22 @@
 fetch("https://test-data-gules.vercel.app/data.json")
   .then((res) => res.json())
   .then((api) => {
+    //We will add Question Categories in this search array
     var search_arr = [];
+    //Id array will store the ids of the question categories
     var id_arr = [];
-    //For checkbox
+
+    // Counters for checkbox (representing checked and unchecked states)
     var ctr1 = 0;
     var ctr2 = 0;
 
     var data_arr = api.data;
+
+    //For Progress Bar
+    var nowQuestionSolved = 0;
+    var prevTotalQuestionSolved = 0;
+    var totalQuestions = 0;
+
     data_arr.forEach((element) => {
       var ques_arr = element.ques;
       createm(element);
@@ -211,26 +220,44 @@ fetch("https://test-data-gules.vercel.app/data.json")
     // Checkbox-1 Feature
     const problem1 = document.querySelectorAll(".p1");
     const problem2 = document.querySelectorAll(".p2");
-
+    totalQuestions = problem1.length + problem2.length;
+    console.log(totalQuestions);
     problem1.forEach((check) => {
       const myBox = check.querySelector(".my-check-box-1");
       myBox.addEventListener("change", function () {
         if (myBox.checked) {
           localStorage.setItem(myBox.id, "1");
-          check.style.backgroundColor = "green";
+          check.style.backgroundColor = "#3D8361";
+          nowQuestionSolved++;
+          updateMyProgressBar(
+            prevTotalQuestionSolved + nowQuestionSolved,
+            totalQuestions
+          );
         } else {
           localStorage.setItem(myBox.id, "0");
-          check.style.backgroundColor = "crimson";
+          check.style.backgroundColor = "#6F61C0";
+          nowQuestionSolved--;
+          updateMyProgressBar(
+            prevTotalQuestionSolved + nowQuestionSolved,
+            totalQuestions
+          );
         }
       });
 
       if (localStorage.getItem(myBox.id) === "1") {
         console.log("Checked");
-        check.style.backgroundColor = "green";
+        check.style.backgroundColor = "#3D8361";
         myBox.checked = true;
+
+        //Updating the number of solved questions
+        prevTotalQuestionSolved++;
+        updateMyProgressBar(
+          prevTotalQuestionSolved + nowQuestionSolved,
+          totalQuestions
+        );
       } else {
         console.log("Unchecked");
-        check.style.backgroundColor = "crimson";
+        check.style.backgroundColor = "#6F61C0";
         myBox.checked = false;
         // localStorage.setItem("isChecked1","0");
       }
@@ -244,24 +271,55 @@ fetch("https://test-data-gules.vercel.app/data.json")
       myBox.addEventListener("change", function () {
         if (myBox.checked) {
           localStorage.setItem(myBox.id, "1");
-          check.style.backgroundColor = "green";
+          check.style.backgroundColor = "#3D8361";
+          nowQuestionSolved++;
+          updateMyProgressBar(
+            prevTotalQuestionSolved + nowQuestionSolved,
+            totalQuestions
+          );
         } else {
           localStorage.setItem(myBox.id, "0");
-          check.style.backgroundColor = "crimson";
+          check.style.backgroundColor = "#6F61C0";
+          nowQuestionSolved--;
+          updateMyProgressBar(
+            prevTotalQuestionSolved + nowQuestionSolved,
+            totalQuestions
+          );
         }
       });
 
       if (localStorage.getItem(myBox.id) === "1") {
         console.log("Checked");
-        check.style.backgroundColor = "green";
+        check.style.backgroundColor = "#3D8361";
         myBox.checked = true;
+
+        prevTotalQuestionSolved++;
+        updateMyProgressBar(
+          prevTotalQuestionSolved + nowQuestionSolved,
+          totalQuestions
+        );
       } else {
         console.log("Unchecked");
-        check.style.backgroundColor = "crimson";
+        check.style.backgroundColor = "#6F61C0";
         myBox.checked = false;
       }
     });
 
+    //Function to update Progress Bar
+    function updateMyProgressBar(totalQuestionSolved, totalQuestions) {
+      var percentage = Math.round((totalQuestionSolved / totalQuestions) * 100);
+      var progress = document.querySelector(".progress");
+      var percentProgress = document.querySelector(".percent");
+      console.log(percentage);
+      progress.style.width = percentage + "%";
+      percentProgress.innerHTML = percentage + "%";
+    }
+
+
+
+
+
+    //Book-Mark Feature
     var bkmk_arr = document.querySelectorAll(".bookmark-btn");
     var bookmarkedProblems = { title: [], ids: [] };
 
@@ -329,42 +387,3 @@ function darkmode() {
   var element = document.body;
   element.classList.toggle("dark-mode");
 }
-
-//  var input = document.createElement('input');
-//  input.setAttribute('class','checkbox-container check-box')
-//  input.setAttribute('type', 'checkbox');
-//  input.setAttribute('onclick', green());
-//  checkboxDiv.appendChild(input);
-
-// let mainTitle=document.getElementById("title");
-// let quesTitle=document.getElementById("ques-title");
-// let ytLink=document.getElementById("yt-link")
-// let prLink=document.getElementById("prob-link");
-
-// fetch("https://test-data-gules.vercel.app/data.json")
-// .then((res)=>res.json())
-// .then((api)=>{
-
-//     var data_arr=api.data;
-
-//     let mainTitle=document.getElementById("title");
-//     let quesTitle=document.getElementById("ques-title");
-//     let ytLink=document.getElementById("yt-link")
-//     let prLink=document.getElementById("prob-link");
-
-//     data_arr.forEach((element)=>{
-//         var ques_arr=element.ques;
-//         mainTitle.innerHTML=element.sl_no+ ". " + element.title ;
-
-//         ques_arr.forEach((ele)=>{
-//             quesTitle.innerHTML=ele.title;
-//             if(ele.yt_link!=null)
-//             ytLink.setAttribute("href", ele.yt_link);
-
-//             if(ele.p1_link!=null)
-//             prLink.setAttribute("href", ele.p1_link);
-
-//         })
-//     })
-
-// });
