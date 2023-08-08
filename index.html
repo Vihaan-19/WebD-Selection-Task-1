@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webd-Task-1</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="GeekHaven">
-        <img src="./images/logo.svg" height="100" width="100" alt="geekhaven" class="logo">
+      <img
+        src="./images/logo.svg"
+        height="100"
+        width="100"
+        alt="geekhaven"
+        class="logo"
+        />
+
     </div>
     <h1 id="dsa">DSA Geek-Sheet</h1>
-    <a href='/bookmarks.html'>BookMarks</a>
-    <button onclick="darkmode()" id="dark-btn">Dark Mode</button>
-
+    <nav>
+      <button onclick="darkmode()" id="dark-btn">Dark Mode</button>
+      <div class="progress-bar">
+        <div class="progress"></div>
+        <span class="percent">0%</span>
+      </div>
+      <a href="/bookmarks.html" class="bookmark-link">BookMarks</a>
+    </nav>
+    
+    
+    
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search...">
-        <button type="button" id="searchButton">Search</button>
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <button type="button" id="searchButton">Search</button>
     </div>
-
+    
+    
     <ul id="searchResults"></ul>
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
