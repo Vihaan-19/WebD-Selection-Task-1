@@ -57,7 +57,9 @@ fetch("https://test-data-gules.vercel.app/data.json")
           quesDiv.appendChild(h2);
 
           //Adding Tags
-          if (ele.tags != "") {
+          //<---------Sir bas ye ek change kiya hai earlier the condition was ele.tags="" par wo null bhi accept kar raha tha------>
+          //<-----SORRY------>
+          if (ele.tags) {
             var tags = ele.tags.split(",");
             console.log(tags);
 
